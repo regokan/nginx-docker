@@ -1,0 +1,33 @@
+version: "3"
+services:
+  web1:
+    build:
+      context: ./express-app
+      dockerfile: Dockerfile
+    environment:
+      - SERVER_NAME=1
+  web2:
+    build:
+      context: ./express-app
+      dockerfile: Dockerfile
+    environment:
+      - SERVER_NAME=2
+  web3:
+    build:
+      context: ./express-app
+      dockerfile: Dockerfile
+    environment:
+      - SERVER_NAME=3
+  web4:
+    build:
+      context: ./express-app
+      dockerfile: Dockerfile
+    environment:
+      - SERVER_NAME=4
+  nginx:
+    restart: always
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:8080"
